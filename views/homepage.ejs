@@ -1,0 +1,39 @@
+<div class="container" ng-controller="candidateCtrl">
+<form name=candidateForm ng-submit="submitForm(candidateForm.$valid)" novalidate>
+
+<div class="form-group">
+<label>First Name</label>
+<input type="text" name="firstname" class="form-control" ng-model="candidateInfo.first_name" 
+minlength="1" maxlength="50" required>
+</div>
+
+<div class="form-group">
+<label>Last Name</label>
+<input type="text" name="lastname" class="form-control" ng-model="candidateInfo.last_name" 
+minlength="1" maxlength="50" required>
+</div>
+
+  <div class="form-group">
+  <label class="control-label" for="dob" >Date of Birth</label>
+  <div class="controls">
+    <div class="input-append">
+      <input id="dob" name="dob" class="input-large" ng-model="candidateInfo.date_of_birth" placeholder="YYYY-MM-DD" type="text">
+      <span class="add-on">DOB</span>
+    </div>
+  </div>
+  </div>
+
+ Gender:
+    <label><input type="radio" ng-model="candidateInfo.gender" value="male" required/>male</label>
+    <label><input type="radio" ng-model="candidateInfo.gender" value="female"required />female</label>
+    <br />
+    <label>
+
+  <div class="form-group">
+    <label for="interest">Why are you applying?</label>
+    <textarea class="form-control" rows="3" ng-model="candidateInfo.interest" required maxlength="1000"></textarea>
+  </div>
+<button type="submit" class="btn btn-primary" ng-disabled="candidateForm.$invalid">Submit</button>
+</form>
+<pre>candidateInfo = {{candidateInfo | json}}</pre>
+</div>
